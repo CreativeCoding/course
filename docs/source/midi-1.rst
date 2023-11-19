@@ -22,6 +22,7 @@ Get *mingus*
 Import mingus into your IDE using the following command::
 
     pip install mingus
+
 Full docs for *mingus* can be found here https://bspaans.github.io/python-mingus/index.html
 
 *Hello Mingus*
@@ -29,10 +30,32 @@ Full docs for *mingus* can be found here https://bspaans.github.io/python-mingus
 This first lesson will concentrate getting mingus to play a single note.
 
 First import mingus into a new python script in your IDE::
+
     from mingus.midi import fluidsynth
+    from time import sleep
 
-Then initialise
-
+Then initialise the synth::
 
     fluidsynth.init("soundfont.SF2")
+
+Now build a note object::
+
+    mynote = Note("C-5")
+
+This will instantiate a Note object (called *mynote*) and assign it the pitch C in 5th octave.
+We can modify *mynote* with other Note class parameters such as midi channel, velocity, and change the pitch::
+
+    mynote.velocity = 50
+    mynote.channel = 5
+    mynote.note = "D-5"
+
+Next we can play *mynote* on Fluidsynth, but will need to stop with a stop command::
+
+    fluidsynth.play_Note(mynote)
+    sleep(1) # pause for 1 second
+    fluidsynth.stop_Note(mynote)
+
+
+c
+
 
