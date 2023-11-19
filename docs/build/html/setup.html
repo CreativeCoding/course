@@ -13,7 +13,7 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="midi 1" href="midi-1.html" />
+    <link rel="next" title="MIDI 1" href="midi-1.html" />
     <link rel="prev" title="Introduction" href="introduction.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -33,12 +33,117 @@
             
   <section id="setup">
 <h1>Setup<a class="headerlink" href="#setup" title="Link to this heading">¶</a></h1>
-<section id="getting-an-ide">
-<h2>Getting an IDE<a class="headerlink" href="#getting-an-ide" title="Link to this heading">¶</a></h2>
+<section id="using-an-ide">
+<h2>Using an IDE<a class="headerlink" href="#using-an-ide" title="Link to this heading">¶</a></h2>
 <p>An IDE is an integrated development environment (IDE) is a software application that helps programmers
 develop software code efficiently. There are many to choose from e.g. Microsoft Visual Code, Pycharm, IDLE.
 It is advised to download one and use it for your code development.</p>
-<p>All the examples and suggestions</p>
+<p>All the examples and images will show Pycharm or Visual Code as the IDE</p>
+</section>
+<section id="using-github">
+<h2>Using GitHub<a class="headerlink" href="#using-github" title="Link to this heading">¶</a></h2>
+<p>We recommend that you get a GitHub account and use teh Git for code sharing and storage.
+Here is a good tutorial <a class="reference external" href="https://www.freecodecamp.org/news/introduction-to-git-and-github/">https://www.freecodecamp.org/news/introduction-to-git-and-github/</a></p>
+</section>
+<section id="using-terminal-bash">
+<h2>Using Terminal &amp; Bash<a class="headerlink" href="#using-terminal-bash" title="Link to this heading">¶</a></h2>
+<p>Bash is a command processor that typically runs in a text window where the user types commands that cause actions. It is
+crucial to understand how Bash works and how to navigate the computer using Bash commands.</p>
+<p>On UNIX systems Bash runs in a Terminal window, in Windows it runs in Command Prompt or PowerShell. However, some of
+the language differs between Terminal Bash, Command Prompt and PowerShell.</p>
+<p>A great way to get familiar with Bash is to play the game BashCrawler <a class="reference external" href="https://gitlab.com/slackermedia/bashcrawl">https://gitlab.com/slackermedia/bashcrawl</a></p>
+</section>
+</section>
+<section id="help-and-problem-solving">
+<h1>Help and problem solving<a class="headerlink" href="#help-and-problem-solving" title="Link to this heading">¶</a></h1>
+<p>Creative coding will mostly involve debugging, problem solving, optimising and trawling the internet for help suggestions.
+This is normal, and a great way to learn and advance your coding creativity. Even experienced developers will spend 90%
+of their coding time debugging, trawling stack overflow, and experimenting with different solutions.</p>
+<p>There are several ways to help you problem-solve:</p>
+<section id="use-the-error-handling-reports-in-the-python-console">
+<h2>1. Use the error handling reports in the python console.<a class="headerlink" href="#use-the-error-handling-reports-in-the-python-console" title="Link to this heading">¶</a></h2>
+<p>Python will tell you what is wrong. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+    <span class="n">File</span> <span class="s2">&quot;C:/Users/Owner.OWNER-PC/AppData/Local/Programs/Python/Python37-32/lab 5 maybe.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">41</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">main</span><span class="p">()</span>
+    <span class="n">File</span> <span class="s2">&quot;C:/Users/Owner.OWNER-PC/AppData/Local/Programs/Python/Python37-32/lab 5 maybe.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">8</span><span class="p">,</span> <span class="ow">in</span> <span class="n">main</span>
+    <span class="n">rand_gen</span><span class="p">(</span><span class="n">myfile</span><span class="p">)</span>
+    <span class="n">File</span> <span class="s2">&quot;C:/Users/Owner.OWNER-PC/AppData/Local/Programs/Python/Python37-32/lab 5 maybe.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">19</span><span class="p">,</span> <span class="ow">in</span> <span class="n">rand_gen</span>
+    <span class="n">my_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="ne">TypeError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">operand</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="o">+</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span> <span class="ow">and</span> <span class="s1">&#39;str&#39;</span>
+</pre></div>
+</div>
+<p>In this error the final line is the actual error that needs to be dealt with. In this case there is a type error in a command.</p>
+</section>
+<section id="look-through-the-module-s-api-in-your-ide">
+<h2>2. look through the module’s API in your IDE<a class="headerlink" href="#look-through-the-module-s-api-in-your-ide" title="Link to this heading">¶</a></h2>
+<p>Modules and Libraries that we will be using have comprehensive and well documented API’s and DocStrings. In your IDE
+if you hover over a function it should explain the format of a command.</p>
+</section>
+<section id="use-the-module-s-api-online">
+<h2>3. use the module’s API online<a class="headerlink" href="#use-the-module-s-api-online" title="Link to this heading">¶</a></h2>
+<p>Modules and Libraries that we will be using have comprehensive and well documented websites.</p>
+</section>
+<section id="look-through-stack-overflow">
+<h2>4. look through Stack Overflow<a class="headerlink" href="#look-through-stack-overflow" title="Link to this heading">¶</a></h2>
+<p>Stack Overflow is a question-and-answer website for programmers. It contains billions of questions and answers related to
+many programming languages. It has been helping programmers since 2008. Beware … some of the answers may be incorrect;
+or old, or both.</p>
+<p>For example, when I put the final line of the above error (TypeError: unsupported operand type(s) for +: ‘int’ and ‘str’)
+into stack overflow the following answer was one listed. <a class="reference external" href="https://stackoverflow.com/questions/53550165/how-to-fix-typeerror">https://stackoverflow.com/questions/53550165/how-to-fix-typeerror</a></p>
+<p>The answers are credible and will work in Python BUT … the thread was from 2018, and the answers only have a few
+positive responses (in bold next to each suggestion). My advice would be to find a newer and better supported thread
+on the same issue.</p>
+</section>
+<section id="chatgpt">
+<h2>5. ChatGPT<a class="headerlink" href="#chatgpt" title="Link to this heading">¶</a></h2>
+<p>Well it’s not going away, and it is very clever. But generally wont help you become more creative. You are better off
+enjoying your trawls through stack overflow and the API’s: you will learn so much more.</p>
+</section>
+<section id="dont-ask-an-instructor-unless">
+<h2>6. Dont ask an instructor unless …<a class="headerlink" href="#dont-ask-an-instructor-unless" title="Link to this heading">¶</a></h2>
+<p>This is the LAST option. And be prepared for the instructor to ask you to walk them through the first 5 help steps.
+Coding is a creative language in itself. To be expressive in your coding - and therefore to be expressive in your creative
+coding - requires you to make mistakes and hunt for solutions. Along the way you will be presented with options. This is all
+a crucial part of your journey.</p>
+</section>
+</section>
+<section id="pseudocode-and-flowcharts">
+<h1>Pseudocode and FlowCharts<a class="headerlink" href="#pseudocode-and-flowcharts" title="Link to this heading">¶</a></h1>
+<p>Before you commit to writing your <em>script</em> in Python, it is very helpful to outline the system design of your <em>algorithms</em>.
+There are 2 methods that you might find helpful:</p>
+<section id="pseudocode">
+<h2>Pseudocode<a class="headerlink" href="#pseudocode" title="Link to this heading">¶</a></h2>
+<p>Pseudocode is an algorithm written in an informal way using everyday language in basic terms. The aim is to outline and highlight
+the flow of data, key functions and core systems. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">time</span> <span class="n">to</span> <span class="mi">0</span>
+<span class="n">Repeat</span> <span class="n">until</span> <span class="n">time</span> <span class="ow">is</span> <span class="n">greater</span> <span class="n">than</span> <span class="mi">5</span> <span class="n">minutes</span>
+    <span class="n">choose</span> <span class="n">a</span> <span class="n">sample</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">bank</span>
+    <span class="n">choose</span> <span class="n">a</span> <span class="n">random</span> <span class="n">start</span> <span class="n">point</span>
+    <span class="n">choose</span> <span class="n">a</span> <span class="n">random</span> <span class="n">end</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">remaining</span> <span class="n">lenbgth</span> <span class="n">of</span> <span class="n">sample</span>
+    <span class="n">choose</span> <span class="n">a</span> <span class="n">random</span> <span class="n">playback</span> <span class="n">speed</span>
+    <span class="n">play</span> <span class="n">the</span> <span class="n">sample</span>
+    <span class="n">add</span> <span class="n">modified</span> <span class="n">sample</span> <span class="n">length</span> <span class="n">to</span> <span class="n">time</span>
+</pre></div>
+</div>
+</section>
+<section id="flowcharts">
+<h2>Flowcharts<a class="headerlink" href="#flowcharts" title="Link to this heading">¶</a></h2>
+<p>Flowcharts are algorithms written in a visual format. The above pseudocode will look like this:</p>
+</section>
+</section>
+<section id="fundamentals">
+<h1>Fundamentals<a class="headerlink" href="#fundamentals" title="Link to this heading">¶</a></h1>
+<p>There are two fundamental coding concepts that are essential to understand before we move forward:</p>
+<section id="threading-i-o-concurrency">
+<h2>1. Threading (I/O concurrency)<a class="headerlink" href="#threading-i-o-concurrency" title="Link to this heading">¶</a></h2>
+<p>Threading enables concurrent processes (or the illusion of concurrency) in your code. For example analysing the sound input
+from the laptop’s microphone AND displaying notes on a screen.</p>
+</section>
+<section id="object-oriented-programming-oop">
+<h2>2. Object-oriented programming (OOP)<a class="headerlink" href="#object-oriented-programming-oop" title="Link to this heading">¶</a></h2>
+<p>Object-oriented programming (OOP) is a computer programming model that organizes software design around data, or objects,
+rather than functions and logic. An object can be defined as a data field that has unique attributes and behavior.</p>
 </section>
 </section>
 
@@ -62,10 +167,31 @@ It is advised to download one and use it for your code development.</p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#getting-an-ide">Getting an IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-an-ide">Using an IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-github">Using GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-terminal-bash">Using Terminal &amp; Bash</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="midi-1.html">midi 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#help-and-problem-solving">Help and problem solving</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#use-the-error-handling-reports-in-the-python-console">1. Use the error handling reports in the python console.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#look-through-the-module-s-api-in-your-ide">2. look through the module’s API in your IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-the-module-s-api-online">3. use the module’s API online</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#look-through-stack-overflow">4. look through Stack Overflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chatgpt">5. ChatGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dont-ask-an-instructor-unless">6. Dont ask an instructor unless …</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#pseudocode-and-flowcharts">Pseudocode and FlowCharts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pseudocode">Pseudocode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flowcharts">Flowcharts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#fundamentals">Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#threading-i-o-concurrency">1. Threading (I/O concurrency)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-oriented-programming-oop">2. Object-oriented programming (OOP)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="midi-1.html">MIDI 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="midi-2.html">midi 2</a></li>
 </ul>
 
@@ -74,7 +200,7 @@ It is advised to download one and use it for your code development.</p>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="introduction.html" title="previous chapter">Introduction</a></li>
-      <li>Next: <a href="midi-1.html" title="next chapter">midi 1</a></li>
+      <li>Next: <a href="midi-1.html" title="next chapter">MIDI 1</a></li>
   </ul></li>
 </ul>
 </div>

@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'course'
+project = 'CreativeComputingCourse'
 copyright = '2023, Craig Vear'
 author = 'Craig Vear'
 release = '0.0.1'

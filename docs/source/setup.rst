@@ -112,12 +112,12 @@ Fundamentals
 There are two fundamental coding concepts that are essential to understand before we move forward:
 
 1. Threading (I/O concurrency)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------
 Threading enables concurrent processes (or the illusion of concurrency) in your code. For example analysing the sound input
 from the laptop's microphone AND displaying notes on a screen.
 
 2. Object-oriented programming (OOP)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 Object-oriented programming (OOP) is a computer programming model that organizes software design around data, or objects,
 rather than functions and logic. An object can be defined as a data field that has unique attributes and behavior.
 

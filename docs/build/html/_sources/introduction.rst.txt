@@ -30,7 +30,6 @@ links:
 Download Python https://realpython.com/installing-python/
 Setting up environments https://realpython.com/python-virtual-environments-a-primer/
 Importing libraries with pip https://realpython.com/what-is-pip/
-Navigating the Terminal with Bash (game) https://gitlab.com/slackermedia/bashcrawl
 
 Format of lessons
 -----------------
