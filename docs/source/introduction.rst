@@ -24,4 +24,13 @@ Setting up environments https://realpython.com/python-virtual-environments-a-pri
 Importing libraries with pip https://realpython.com/what-is-pip/
 Navigating the Terminal with Bash (game) https://gitlab.com/slackermedia/bashcrawl
 
+Format of lessons
+-----------------
+
+Each lesson pretty much focuses on a single library or single use of a library. These are split into 3 main
+activities:
+1) an explanation of a "hello world" use
+2) a walkthrough of a creative music application
+3) extended discussion of the libraries API
+
 

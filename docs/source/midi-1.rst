@@ -6,11 +6,11 @@ In this lesson you will be introduced to using Midi in Python. We will concentra
 
 We will be using an internal synthesiser too, so we need to install *fluidsynth*.
 
-Follow the instructions here https://github.com/FluidSynth/fluidsynth
+Follow the instructions here https://github.com/FluidSynth/fluidsynth/wiki/Download
 
 *FluidSynth* is a MIDI synthesizer which uses SoundFont (.SF2) files to generate audio.
-To get it to make a sound you will need one of these files (look here: http://www.hammersound.net,
-go to Sounds -> Soundfont Library -> Collections)
+To get it to make a sound you will need one of these files (look here: https://github.com/FluidSynth/fluidsynth/wiki/SoundFont
+for simplicity we are using *GeneralUser GS v1.471.sf2* )
 
 Once you have *fluidsynth* and have tested it works, you can move forward with the lesson.
 
@@ -27,11 +27,14 @@ Full docs for *mingus* can be found here https://bspaans.github.io/python-mingus
 
 *Hello Mingus*
 ^^^^^^^^^^^^^^
+midi-mingus-1.py
+
 This first lesson will concentrate getting mingus to play a single note.
 
-First import mingus into a new python script in your IDE::
+First import some mingus methods and sleep into a new python script in your IDE::
 
     from mingus.midi import fluidsynth
+    from mingus.containers import Note
     from time import sleep
 
 Then initialise the synth::
@@ -55,7 +58,10 @@ Next we can play *mynote* on Fluidsynth, but will need to stop with a stop comma
     sleep(1) # pause for 1 second
     fluidsynth.stop_Note(mynote)
 
+When you run this code you should hear a piano note sound for 1 second.
 
-c
+Mingus Creative example
+-----------------------
+Linked to midi-mingus-2.py
 
 
