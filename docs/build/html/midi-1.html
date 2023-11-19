@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MIDI 1 &#8212; course 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="midi 2" href="midi-2.html" />
+    <link rel="prev" title="Setup" href="setup.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="midi-1">
+<h1>MIDI 1<a class="headerlink" href="#midi-1" title="Link to this heading">¶</a></h1>
+<p>In this lesson you will be introduced to using Midi in Python. We will concentrate on two well-established libraries:
+<em>Mingus</em> and <em>Music21</em></p>
+<p>We will be using an internal synthesiser too, so we need to install <em>fluidsynth</em>.</p>
+<p>Follow the instructions here <a class="reference external" href="https://github.com/FluidSynth/fluidsynth/wiki/Download">https://github.com/FluidSynth/fluidsynth/wiki/Download</a></p>
+<p><em>FluidSynth</em> is a MIDI synthesizer which uses SoundFont (.SF2) files to generate audio.
+To get it to make a sound you will need one of these files (look here: <a class="reference external" href="https://github.com/FluidSynth/fluidsynth/wiki/SoundFont">https://github.com/FluidSynth/fluidsynth/wiki/SoundFont</a>
+for simplicity we are using <em>GeneralUser GS v1.471.sf2</em> )</p>
+<p>Once you have <em>fluidsynth</em> and have tested it works, you can move forward with the lesson.</p>
+<section id="mingus">
+<h2>Mingus<a class="headerlink" href="#mingus" title="Link to this heading">¶</a></h2>
+<section id="get-mingus">
+<h3>Get <em>mingus</em><a class="headerlink" href="#get-mingus" title="Link to this heading">¶</a></h3>
+<p>Import mingus into your IDE using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">mingus</span>
+</pre></div>
+</div>
+<p>Full docs for <em>mingus</em> can be found here <a class="reference external" href="https://bspaans.github.io/python-mingus/index.html">https://bspaans.github.io/python-mingus/index.html</a></p>
+</section>
+<section id="hello-mingus">
+<h3>1. <em>Hello Mingus</em><a class="headerlink" href="#hello-mingus" title="Link to this heading">¶</a></h3>
+<p>midi-mingus-1.py</p>
+<p>This first lesson will concentrate getting mingus to play a single note.</p>
+<p>First import some mingus methods and sleep into a new python script in your IDE:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mingus.midi</span> <span class="kn">import</span> <span class="n">fluidsynth</span>
+<span class="kn">from</span> <span class="nn">mingus.containers</span> <span class="kn">import</span> <span class="n">Note</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+</pre></div>
+</div>
+<p>Then initialise the synth:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fluidsynth</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s2">&quot;soundfont.SF2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now build a note object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mynote</span> <span class="o">=</span> <span class="n">Note</span><span class="p">(</span><span class="s2">&quot;C-5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will instantiate a Note object (called <em>mynote</em>) and assign it the pitch C in 5th octave.
+We can modify <em>mynote</em> with other Note class parameters such as midi channel, velocity, and change the pitch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mynote</span><span class="o">.</span><span class="n">velocity</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">mynote</span><span class="o">.</span><span class="n">channel</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">mynote</span><span class="o">.</span><span class="n">note</span> <span class="o">=</span> <span class="s2">&quot;D-5&quot;</span>
+</pre></div>
+</div>
+<p>Next we can play <em>mynote</em> on Fluidsynth, but will need to stop with a stop command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fluidsynth</span><span class="o">.</span><span class="n">play_Note</span><span class="p">(</span><span class="n">mynote</span><span class="p">)</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># pause for 1 second</span>
+<span class="n">fluidsynth</span><span class="o">.</span><span class="n">stop_Note</span><span class="p">(</span><span class="n">mynote</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When you run this code you should hear a piano note sound for 1 second.</p>
+</section>
+<section id="mingus-creative-example">
+<h3>2. Mingus Creative example<a class="headerlink" href="#mingus-creative-example" title="Link to this heading">¶</a></h3>
+<p>Linked to midi-mingus-2.py</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">course</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MIDI 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mingus">Mingus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#get-mingus">Get <em>mingus</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hello-mingus">1. <em>Hello Mingus</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mingus-creative-example">2. Mingus Creative example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="midi-2.html">midi 2</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="setup.html" title="previous chapter">Setup</a></li>
+      <li>Next: <a href="midi-2.html" title="next chapter">midi 2</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Craig Vear.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/midi-1.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
