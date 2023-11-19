@@ -1,4 +1,6 @@
-# prerequistites
+# Setup
+
+## prerequisites to the course
 
 This course presumes that you have some basic knowledge of computer programming and especially Python.
 If you are starting from scratch then you will need to complete an 'intro to python' course elsewhere.
