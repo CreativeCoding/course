@@ -29,8 +29,8 @@ Format of lessons
 
 Each lesson pretty much focuses on a single library or single use of a library. These are split into 3 main
 activities:
-1) an explanation of a "hello world" use
-2) a walkthrough of a creative music application
-3) extended discussion of the libraries API
+1) CONCEPT e.g. an explanation of a "hello world" use
+2) TASK e.g. a walkthrough of a creative music application
+3) EXTRA CREDIT: e.g. extended discussion of the library's API
 
 
