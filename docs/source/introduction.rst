@@ -66,7 +66,8 @@ your original idea.
 
 Why Python?
 -----------
-Throughout these lessons we will be using Python as our programming language. Python is
+Throughout these lessons we will be using Python as our programming language. Python is:
+
 + easy to learn and easy to use
 + has a lot of solid and dependable libraries that support creative coding
 + it is simple and powerful
