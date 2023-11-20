@@ -89,14 +89,18 @@ In this case it was a small task::
 
 Mido
 ------
+*Fluidsynth* is very good at playing assigned notes on a software synth. But if you want more control over your MIDI signals,
+manage live MIDI signals to and from external devices, manipulate command control parameters, perhaps create files in MIDI,
+then *mido* would be a better library.
+
 Get *mido*
 ^^^^^^^^^^^^
 
-Import mingus into your IDE using the following command::
+Import *mido* into your IDE using the following command::
 
     pip install mido
 
-Full docs for *mingus* can be found here https://mido.readthedocs.io/en/stable/
+Full docs for *mido* can be found here https://mido.readthedocs.io/en/stable/
 
 1. *Hello Mido*
 ^^^^^^^^^^^^^^^^^
@@ -104,37 +108,142 @@ midi-mido-1.py
 
 This first lesson will concentrate getting mido to play a single note.
 
-First import some mingus methods and sleep into a new python script in your IDE::
+First import python modules::
 
-    from mingus.midi import fluidsynth
-    from mingus.containers import Note
+    from mido.messages import Message
+    import fluidsynth
     from time import sleep
 
-Then initialise the synth::
+Activate (instantiate) the fluidsynth object in python::
 
-    fluidsynth.init("soundfont.SF2")
+    fs = fluidsynth.Synth()
+    fs.start()  # you may need to use 'start(driver=dsound)' driver in Windows or 'start(driver=alsa)' in linux
 
-Now build a note object::
+Locate the sf2 file and load into the fluidsynth object::
 
-    mynote = Note("C-5")
+    sfid = fs.sfload(r'GeneralUser GS v1.471.sf2')  # replace path as needed
 
-This will instantiate a Note object (called *mynote*) and assign it the pitch C in 5th octave.
-We can modify *mynote* with other Note class parameters such as midi channel, velocity, and change the pitch::
+Select a sound to play::
 
-    mynote.velocity = 50
-    mynote.channel = 5
-    mynote.note = "D-5"
+    fs.program_select(0, sfid, 0, 0)
 
-Next we can play *mynote* on Fluidsynth, but will need to stop with a stop command::
+Make a midi Message object and call it msg.
+This message will be a 'note on' type, with note number 60::
 
-    fluidsynth.play_Note(mynote)
-    sleep(1) # pause for 1 second
-    fluidsynth.stop_Note(mynote)
+    msg = Message('note_on', note=60)
 
-When you run this code you should hear a piano note sound for 1 second.
+Amend other Message Object parameters, in this case velocity::
 
-2. Mingus Creative example
+    msg.velocity = 90
+
+Print out the contents of the message object msg::
+
+    print(msg)
+
+Parse the Message and play on fluidsynth::
+
+    if msg.type == "note_on":
+        fs.noteon(msg.channel, msg.note, msg.velocity)
+        sleep(2)
+        fs.noteoff(msg.channel, msg.note)
+
+ALTERNATIVE TO FLUIDSYNTH
+^^^^^^^^^^^^^^^^^^^^^^^^^
+With the above exmaple, it is not achieveing much more than can be achieved with
+*pyfluidsynth*. To understand why *mido* is so useful, we need to plug in a midi port device (
+e.g. virtual instrument in Garageband, or an external synth) and use the following code::
+
+    portname = "INSERT PORT NAME HERE"
+    with mido.open_output(portname, autoreset=True) as port:
+        print(f'Using {port}')
+
+        on = Message('note_on', note=note)
+        print(f'Sending {on}')
+        port.send(on)
+        time.sleep(0.05)
+
+        off = Message('note_off', note=note)
+        print(f'Sending {off}')
+        port.send(off)
+        time.sleep(0.1)
+
+
+2. Mido Creative example
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-Linked to midi-mingus-2.py
+Linked to midi-mido-2.py
 
+This example will loop through a random note sequence.
 
+Import python modules::
+
+    import random
+    import time
+    import mido
+    from mido.messages import Message
+    import fluidsynth
+
+Activate (instantiate) the fluidsynth object in python::
+
+    fs = fluidsynth.Synth()
+    fs.start()  # you may need to use 'start(driver=dsound)' driver in Windows or 'start(driver=alsa)' in linux
+
+Locate the sf2 file and load into the fluidsynth object::
+
+    sfid = fs.sfload(r'GeneralUser GS v1.471.sf2')  # replace path as needed
+
+Select a sound to play::
+
+    fs.program_select(0, sfid, 0, 0)
+
+Declare operational params
+A pentatonic scale and triplets::
+
+    notes = [60, 62, 64, 67, 69, 72]
+    durations = [1, 0.5, 0.6, 0.3]
+
+Create a function that plays the midi not to fluidsynth::
+
+    def fs_player(ftype, fnote, fvelocity=0):
+        # if the incoming type is a note
+        if ftype == "note_on":
+            fs.noteon(chan=0,
+                      key=fnote,
+                      vel=fvelocity
+                      )
+        # if the incoming type is not off
+        elif ftype == "note_off":
+            fs.noteoff(chan=0,
+                       key=fnote
+                       )
+        # else there is an error
+        else:
+            print("Error")
+
+While on an infinite loop::
+
+    while True:
+        # make some random choices about note, duration and velocity
+        note = random.choice(notes)
+        duration = random.choice(durations)
+        velocity = random.randrange(30, 100)
+
+        # create an on Message object
+        on = Message('note_on',
+                     note=note,
+                     velocity=velocity
+                     )
+        # send to the fs_player function to sound
+        print(f'Sending {on}')
+        fs_player(ftype="note_on",
+                  fnote=note,
+                  fvelocity=velocity)
+        # sleep for the rhythm duration
+        time.sleep(duration)
+
+        # turn the note off
+        off = Message('note_off',
+                      note=note
+                      )
+        print(f'Sending {off}')
+        fs_player("note_off",
+                  fnote=note)

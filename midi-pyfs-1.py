@@ -13,9 +13,9 @@ sfid = fs.sfload(r'GeneralUser GS v1.471.sf2')  # replace path as needed
 fs.program_select(0, sfid, 0, 0)
 
 # make some notes
-fs.noteon(0, 50, 30)
-fs.noteon(0, 57, 30)
-fs.noteon(0, 66, 30)
+fs.noteon(0, 50, 70)
+fs.noteon(0, 57, 70)
+fs.noteon(0, 66, 70)
 
 # hold for 2 seconds
 sleep(2.0)
