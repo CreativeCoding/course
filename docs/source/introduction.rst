@@ -76,12 +76,12 @@ Throughout these lessons we will be using Python as our programming language. Py
 
 On Purpose!
 -----------
-Creativity come through playing with materials and with ideas. The purpose of such play with computers is discussed in
+Creativity comes through playing with materials and with ideas. The purpose of such play with computers is discussed in
 Harold Cohan’s article *On Purpose* and can be read here: https://www.studiointernational.com/on-purpose-an-enquiry-into-the-possible-roles-of-the-computer-in-art
 
 Although first published in 1974, it highlights that the central concern of Harold’s original –
 that of the ‘ultimate purpose’ of an artist – is still as relevant and of critical importance to creativity with computers
-as it was in the 1970’s. In fact, it should be read, regularly, as a guiding light by which this course was developed.
+as it was in the 1970’s. In fact, it should be read, regularly, as a guiding light with which to inspire our creative ideas.
 
 
 
