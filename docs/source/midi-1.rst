@@ -2,7 +2,7 @@ MIDI 1
 ======
 
 In this lesson you will be introduced to using Midi in Python. We will concentrate on three well-established libraries:
-*pyfluidsynth*, *mido* and *music21*
+*pyfluidsynth* and *mido* in the MIDI 1 session and *music21* in MIDI 2
 
 pyfluidsynth
 -------------
