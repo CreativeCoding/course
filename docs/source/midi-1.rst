@@ -1,35 +1,108 @@
 MIDI 1
 ======
 
-In this lesson you will be introduced to using Midi in Python. We will concentrate on two well-established libraries:
-*Mingus* and *Music21*
+In this lesson you will be introduced to using Midi in Python. We will concentrate on three well-established libraries:
+*pyfluidsynth*, *mido* and *music21*
 
-We will be using an internal synthesiser too, so we need to install *fluidsynth*.
+pyfluidsynth
+-------------
+Get Fluidsynth
+^^^^^^^^^^^^^^
+
+*pyfluidsynth* is a python binding to the more universal *fluidsynth* library. Fluidsynth
+is an internal synthesiser, so we need to install *fluidsynth* into the computer not the python environment.
 
 Follow the instructions here https://github.com/FluidSynth/fluidsynth/wiki/Download
 
 *FluidSynth* is a MIDI synthesizer which uses SoundFont (.SF2) files to generate audio.
 To get it to make a sound you will need one of these files (look here: https://github.com/FluidSynth/fluidsynth/wiki/SoundFont
-for simplicity we are using *GeneralUser GS v1.471.sf2* )
+for simplicity we are using *GeneralUser GS v1.471.sf2* ).
+Put this sf2 file into your 'project' folder.
 
-Once you have *fluidsynth* and have tested it works, you can move forward with the lesson.
+testing fluidsynth
+^^^^^^^^^^^^^^^^^^
+Once you have installed *fluidsynth* you now need to test it works.
 
-Mingus
+    1. download this midi file into the same 'project' folder as the sf2 file https://www.mfiles.co.uk/downloads/book1-prelude01.mid
+    2. open a terminal/ command prompt and go to the 'project' folder
+    3. run this Bash command::
+
+    fluidsynth GeneralUser GS v1.471.sf2 book1-prelude01.mid
+
+This will play the Bach midi file in *fluidsynth* using the sf2 file as the general midi sound source.
+
+Get pyfluidsynth
+^^^^^^^^^^^^^^^^
+Once you have installed *fluidsynth* and have tested it works, you can move forward with the lesson. But,
+first we need to import the python binding library for fluidsynth::
+
+    pip install pyfluidsynth
+
+1. *Hello pyfluidsynth*
+^^^^^^^^^^^^^^^^^^^^^^^
+Open a new python file in your IDE (or open midi-pyfs-1.py).
+
+Import python modules::
+
+    import fluidsynth
+    from time import sleep
+
+Activate (instantiate) the fluidsynth object in python::
+
+    fs = fluidsynth.Synth()
+    fs.start()  # you may need to use 'start(driver=dsound)' driver in Windows or 'start(driver=alsa)' in linux
+
+Locate the sf2 file and load into the fluidsynth object::
+
+    sfid = fs.sfload(r'GeneralUser GS v1.471.sf2')  # replace path as needed
+
+Select a sound to play::
+
+    fs.program_select(0, sfid, 0, 0)
+
+Make some notes::
+
+    fs.noteon(0, 50, 30)
+    fs.noteon(0, 57, 30)
+    fs.noteon(0, 66, 30)
+
+Hold for 2 seconds::
+
+    sleep(2.0)
+
+Stop the notes::
+
+    fs.noteoff(0, 50)
+    fs.noteoff(0, 57)
+    fs.noteoff(0, 66)
+
+Wait for a bit::
+
+    sleep(1)
+
+It is good practice to collapse the object once you have completed the whole task.
+In this case it was a small task::
+
+    fs.delete()
+
+
+
+Mido
 ------
-Get *mingus*
+Get *mido*
 ^^^^^^^^^^^^
 
 Import mingus into your IDE using the following command::
 
-    pip install mingus
+    pip install mido
 
-Full docs for *mingus* can be found here https://bspaans.github.io/python-mingus/index.html
+Full docs for *mingus* can be found here https://mido.readthedocs.io/en/stable/
 
-1. *Hello Mingus*
+1. *Hello Mido*
 ^^^^^^^^^^^^^^^^^
-midi-mingus-1.py
+midi-mido-1.py
 
-This first lesson will concentrate getting mingus to play a single note.
+This first lesson will concentrate getting mido to play a single note.
 
 First import some mingus methods and sleep into a new python script in your IDE::
 
