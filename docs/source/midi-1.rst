@@ -247,3 +247,29 @@ While on an infinite loop::
         print(f'Sending {off}')
         fs_player("note_off",
                   fnote=note)
+
+3. Mido API
+-----------
+The API and comprehensive docs offer many examples of *mido*'s usability and OOP construction.
+
+Here is one example of how to build and save a midifile (taken verbatim from https://mido.readthedocs.io/en/stable/files/midi.html#creating-a-new-file):
+1. import the methods from mido::
+
+    from mido import Message, MidiFile, MidiTrack
+
+2. create 2 types of objects: a midifile, and a midi track which we will fill with Message objects::
+
+    mid = MidiFile()
+    track = MidiTrack()
+3. add (append) the track object into the midifil object::
+
+    mid.tracks.append(track)
+4. add (append) midi messages to the track object::
+
+    track.append(Message('program_change', program=12, time=0))
+    track.append(Message('note_on', note=64, velocity=64, time=32))
+    track.append(Message('note_off', note=64, velocity=127, time=32))
+5. finally save the midifile object, which now contains 1 track with 3 messages::
+
+    mid.save('new_song.mid')
+
