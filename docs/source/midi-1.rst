@@ -249,7 +249,7 @@ While on an infinite loop::
                   fnote=note)
 
 3. Mido API
------------
+^^^^^^^^^^^
 The API and comprehensive docs offer many examples of *mido*'s usability and OOP construction.
 
 Here is one example of how to build and save a midifile (taken verbatim from https://mido.readthedocs.io/en/stable/files/midi.html#creating-a-new-file):

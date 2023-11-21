@@ -1,4 +1,4 @@
-midi 2
+MIDI 2
 ======
 
 *music21*
