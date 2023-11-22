@@ -3,6 +3,8 @@ Introduction
 
 In this course you will ....
 
+The GitHub repository to support this course is https://github.com/CreativeCoding/course
+
 prerequisites to the course
 ---------------------------
 
