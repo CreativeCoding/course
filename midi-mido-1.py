@@ -35,7 +35,7 @@ fs.delete()
 """
 ALTERNATIVE TO FLUIDSYNTH
 
-port = "INSERT PORT NAME HERE"
+portname = "INSERT PORT NAME HERE"
 with mido.open_output(portname, autoreset=True) as port:
     print(f'Using {port}')
 
