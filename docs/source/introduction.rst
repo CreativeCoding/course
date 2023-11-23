@@ -66,7 +66,7 @@ with computers.
 Coding involves problem solving, writing algorithms in steps, sometimes using maths and logic to develop solution that
 expresses your creativity. This involves a looped process of
 
-| *idea -> build -> test -> reflect -> refine idea -> build -> test -> reflect etc etc*
+    | *idea -> build -> test -> reflect -> refine idea -> build -> test -> reflect etc etc*
 
 The code and your scripts are materials in tis process, they will speak to you and offer suggestions, sometimes limit, sometimes expand
 your original idea.
