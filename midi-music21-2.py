@@ -3,6 +3,7 @@ from music21 import converter
 from random import shuffle
 import fluidsynth
 from time import sleep
+from threading import Thread
 
 
 # activate (instantiate) the fluidsynth object in python
@@ -49,25 +50,6 @@ def get_midi_bits(mf) -> list:
     # Send this list back to where this function was called
     return bits
 
-def play_midi_bits(bits: list):
-    """
-    Uses fluidsynth to play back the list of notes in Music21 format.
-    :param bits: randomised list of notes (name_octave, duration)
-    """
-    # Iterate through the random list of notes
-    for n in bits:
-        print(n)
-        pitch = n[0]
-        duration = n[1]
-
-        # midi note calculation
-        midi_note = calc_midi_note(pitch)
-
-        # play the note, wait then stop
-        fs.noteon(0, midi_note, 70)
-        sleep(duration/2)
-        fs.noteoff(0, midi_note)
-
 def calc_midi_note(midstr: str) -> int:
     """
     Calculates the midi number for a given Music21 notes string, format pitch_octave.
@@ -97,6 +79,45 @@ def calc_midi_note(midstr: str) -> int:
     # return the midinote
     return answer
 
+def play_midi_bits(bits: list):
+    """
+    Uses fluidsynth to play back the list of notes in Music21 format.
+    :param bits: randomised list of notes (name_octave, duration)
+    """
+    # Iterate through the random list of notes
+    for n in bits:
+        print(n)
+        pitch = n[0]
+        duration = n[1]
+
+        # midi note calculation
+        midi_note = calc_midi_note(pitch)
+
+        # play the note, wait then stop
+        fs.noteon(0, midi_note, 70)
+        sleep(duration/2)
+        fs.noteoff(0, midi_note)
+
+def main():
+    # Send a Midifile path to
+    midi_bits = get_midi_bits("book1-prelude01.mid")
+    # Shuffle it for fun
+    shuffle(midi_bits)
+    shuffled_midi_bits = midi_bits
+    shuffle (shuffled_midi_bits)
+
+    t1 = Thread(target=play_midi_bits,
+                args=(midi_bits,)
+                )
+    t2 = Thread(target=play_midi_bits,
+                args=(shuffled_midi_bits,)
+                )
+
+    t1.start()
+    t2.start()
+    t2.join()
+
+
 #  Code starts here
 if __name__ == "__main__":
     # Send a Midifile path to
@@ -105,3 +126,7 @@ if __name__ == "__main__":
     shuffle(midi_bits)
     # Play the resultant new composition
     play_midi_bits(midi_bits)
+
+# Alternative two-part version
+# if __name__ == "__main__":
+#     main()
