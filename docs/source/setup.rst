@@ -4,16 +4,21 @@ Setup
 Using an IDE
 --------------
 
-An IDE is an integrated development environment (IDE) is a software application that helps programmers
+An IDE is an integrated development environment. It is a software application that helps programmers
 develop software code efficiently. There are many to choose from e.g. Microsoft Visual Code, Pycharm, IDLE.
 It is advised to download one and use it for your code development.
 
-All the examples and images will show Pycharm or Visual Code as the IDE
+Alternatively, you could edit your code in
+Textedit, Notepad or BBEdit which come packaged with your OS, and then run your code in a Terminal.
+
 
 Using GitHub
 ------------
-We recommend that you get a GitHub account and use teh Git for code sharing and storage.
-Here is a good tutorial https://www.freecodecamp.org/news/introduction-to-git-and-github/
+We recommend that you get a GitHub account and use the Git for code sharing and storage. This might need installing in your system.
+
+
+| Here is a good tutorial https://www.freecodecamp.org/news/introduction-to-git-and-github/
+
 
 Using Terminal & Bash
 ---------------------
@@ -23,7 +28,8 @@ crucial to understand how Bash works and how to navigate the computer using Bash
 On UNIX systems Bash runs in a Terminal window, in Windows it runs in Command Prompt or PowerShell. However, some of
 the language differs between Terminal Bash, Command Prompt and PowerShell.
 
-A great way to get familiar with Bash is to play the game BashCrawler https://gitlab.com/slackermedia/bashcrawl
+| A great way to get familiar with Bash is to play the game BashCrawler https://gitlab.com/slackermedia/bashcrawl
+
 
 Help and problem solving
 -------------------------
@@ -126,6 +132,6 @@ from the laptop's microphone AND displaying notes on a screen. Through this cour
 Object-oriented programming (OOP) is a computer programming model that organizes software design around data, or objects,
 rather than functions and logic. An object can be defined as a data field that has unique attributes and behavior.
 
-Further info https://www.w3schools.com/python/python_classes.asp
+| Further info https://www.w3schools.com/python/python_classes.asp
 
 
