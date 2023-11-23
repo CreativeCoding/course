@@ -15,6 +15,8 @@ Guide
    setup
    midi-1
    midi-2
+   audio-1
+   audio-2
 
 
 Indices and tables
