@@ -114,11 +114,18 @@ There are two fundamental coding concepts that are essential to understand befor
 1. Threading (I/O concurrency)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Threading enables concurrent processes (or the illusion of concurrency) in your code. For example analysing the sound input
-from the laptop's microphone AND displaying notes on a screen.
+from the laptop's microphone AND displaying notes on a screen. Through this course we will use 4 libraries that support concurrency:
+
++ *trio* https://trio.readthedocs.io/en/stable/
++ *asyncio* https://docs.python.org/3/library/asyncio.html
++ *concurrent.futures* https://docs.python.org/3/library/concurrent.futures.html
++ *threading* https://docs.python.org/3/library/threading.html
 
 2. Object-oriented programming (OOP)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Object-oriented programming (OOP) is a computer programming model that organizes software design around data, or objects,
 rather than functions and logic. An object can be defined as a data field that has unique attributes and behavior.
+
+Further info https://www.w3schools.com/python/python_classes.asp
 
 

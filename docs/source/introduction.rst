@@ -1,7 +1,9 @@
 Introduction
 ============
 
-In this course you will ....
+In this course you will learn the basics of creative computing for music.
+It will take you through the application of code in creative explorations of
+MIDI, audio and I/O communications.
 
 The GitHub repository to support this course is https://github.com/CreativeCoding/course
 
@@ -46,9 +48,9 @@ activities:
 What is creative coding?
 ------------------------
 
-"Creative coding is a type of computer programming in which the goal is to create something expressive instead of something functional."
-"Creative Coding is a process, based on exploration, iteration, reflection and discovery, where code is used as the primary medium to create a wide range of media artifacts."
-"Creative coding uses software, code and computational processes to be expressive or to create art forms."
++ "Creative coding is a type of computer programming in which the goal is to create something expressive instead of something functional."
++ "Creative Coding is a process, based on exploration, iteration, reflection and discovery, where code is used as the primary medium to create a wide range of media artifacts."
++ "Creative coding uses software, code and computational processes to be expressive or to create art forms."
 
 As highlighted by these statements, creative coding can be described in many ways. In essence it is using to code to make a computer do something creative.
 This could be to get the computer to produce something creative, such as an artwork or a song, or to get it to help you make
@@ -61,7 +63,7 @@ with computers.
 Coding involves problem solving, writing algorithms in steps, sometimes using maths and logic to develop solution that
 expresses your creativity. This involves a looped process of
 
-idea -> build -> test -> reflect -> refine idea -> build etc etc
+idea -> build -> test -> reflect -> refine idea -> build -> test -> reflect etc etc
 
 The code and your scripts are materials in tis process, they will speak to you and offer suggestions, sometimes limit, sometimes expand
 your original idea.
