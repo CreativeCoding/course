@@ -2,8 +2,7 @@ Introduction
 ============
 
 In this course you will learn the basics of creative computing for music.
-It will take you through the application of code in creative explorations of
-MIDI, audio and I/O communications.
+It will take you through MIDI, audio and I/O communications.
 
 The GitHub repository to support this course is https://github.com/CreativeCoding/course
 
@@ -12,6 +11,11 @@ prerequisites to the course
 
 This course presumes that you have some basic knowledge of computer programming and especially Python.
 If you are starting from scratch then you will need to complete an 'intro to python' course elsewhere.
+
+
+Google Education offer a good online course: https://developers.google.com/edu/python
+
+
 The basic knowledge required is an understanding of:
 
 + object and data structures,
@@ -38,12 +42,13 @@ links:
 Format of lessons
 -----------------
 
-Each lesson pretty much focuses on a single library or single use of a library. These are split into 3 main
+Each lesson generally focuses on a single library or single use of a library. Each of these are split into 3 main
 activities:
 
     1. **CONCEPT** e.g. an explanation of a "hello world" use
     2. **TASK** e.g. a walkthrough of a creative music application
     3. **EXTRA CREDIT**: e.g. extended discussion of the library's API
+
 
 What is creative coding?
 ------------------------
@@ -63,7 +68,7 @@ with computers.
 Coding involves problem solving, writing algorithms in steps, sometimes using maths and logic to develop solution that
 expresses your creativity. This involves a looped process of
 
-idea -> build -> test -> reflect -> refine idea -> build -> test -> reflect etc etc
+*idea -> build -> test -> reflect -> refine idea -> build -> test -> reflect etc etc*
 
 The code and your scripts are materials in tis process, they will speak to you and offer suggestions, sometimes limit, sometimes expand
 your original idea.
