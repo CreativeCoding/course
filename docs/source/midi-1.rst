@@ -100,7 +100,7 @@ Import *mido* into your IDE using the following command::
 
     pip install mido
 
-Full docs for *mido* can be found here https://mido.readthedocs.io/en/stable/
+    | Full docs for *mido* can be found here https://mido.readthedocs.io/en/stable/
 
 1. *Hello Mido*
 ^^^^^^^^^^^^^^^^^

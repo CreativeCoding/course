@@ -115,9 +115,23 @@ Flowcharts are algorithms written in a visual format. The above pseudocode will 
 
 Fundamentals
 ------------
-There are two fundamental coding concepts that are essential to understand before we move forward:
+There are three fundamental coding concepts that are essential to understand before we move forward:
 
-1. Threading (I/O concurrency)
+1. Installing Libraries
+^^^^^^^^^^^^^^^^^^^^^^^
+The safest way to install and manage external libraries in Python is through your IDE and **WITHIN**
+the environment for your project.
+
+    | in Pycharm https://www.jetbrains.com/guide/python/tutorials/getting-started-pycharm/installing-and-managing-python-packages/
+    | in Visual Code https://learn.microsoft.com/en-us/visualstudio/python/tutorial-working-with-python-in-visual-studio-step-05-installing-packages?view=vs-2022
+
+If this doesn't work, it is possible to install to use the Terminal function **INSIDE** your IDE,
+and ensuring that the Terminal is **WITHIN** your python environment. In this case you can use
+the command::
+
+    pip install XXXX
+
+2. Threading (I/O concurrency)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Threading enables concurrent processes (or the illusion of concurrency) in your code. For example analysing the sound input
 from the laptop's microphone AND displaying notes on a screen. Through this course we will use 4 libraries that support concurrency:
@@ -127,7 +141,7 @@ from the laptop's microphone AND displaying notes on a screen. Through this cour
 + *concurrent.futures* https://docs.python.org/3/library/concurrent.futures.html
 + *threading* https://docs.python.org/3/library/threading.html
 
-2. Object-oriented programming (OOP)
+3. Object-oriented programming (OOP)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Object-oriented programming (OOP) is a computer programming model that organizes software design around data, or objects,
 rather than functions and logic. An object can be defined as a data field that has unique attributes and behavior.
