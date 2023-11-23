@@ -40,7 +40,7 @@ first we need to import the python binding library for fluidsynth::
 
 1. *Hello pyfluidsynth*
 ^^^^^^^^^^^^^^^^^^^^^^^
-Open a new python file in your IDE (or open midi-pyfs-1.py).
+    | Open a new python file in your IDE (or open midi-pyfs-1.py).
 
 Import python modules::
 
@@ -168,9 +168,9 @@ e.g. virtual instrument in Garageband, or an external synth) and use the followi
         time.sleep(0.1)
 
 
-2. Mido Creative example
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-Linked to midi-mido-2.py
+    2. Mido Creative example
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | Linked to midi-mido-2.py
 
 This example will loop through a random note sequence.
 
