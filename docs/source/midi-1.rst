@@ -4,7 +4,7 @@ MIDI 1
 In this lesson you will be introduced to using Midi in Python. We will concentrate on three well-established libraries:
 *pyfluidsynth* and *mido* in the MIDI 1 session and *music21* in MIDI 2
 
-pyfluidsynth
+*pyfluidsynth*
 -------------
 Get Fluidsynth
 ^^^^^^^^^^^^^^
@@ -87,7 +87,7 @@ In this case it was a small task::
 
 
 
-Mido
+*Mido*
 ------
 *Fluidsynth* is very good at playing assigned notes on a software synth. But if you want more control over your MIDI signals,
 manage live MIDI signals to and from external devices, manipulate command control parameters, perhaps create files in MIDI,
