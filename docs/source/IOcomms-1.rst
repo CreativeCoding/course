@@ -43,7 +43,7 @@ Iterate through list and print out to console::
     for i in com_ports:
         print(i.device)
 2. Example with Arduino
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 In this example we will explore a simple in-out communications between Python and an Arduino.
 You will need an Arduino for this experiment. The tutorial is taken from here:
 
@@ -78,14 +78,19 @@ On an endless loop::
         print(value) # printing the value
 
 **ARDUINO CODE**
-You will need to upload this to the Arduino::
+You will need to upload this to the Arduino.
+Declare an integer variable called x::
 
     int x;
+
+Setup the serial port parameters::
 
     void setup() {
       Serial.begin(115200);
       Serial.setTimeout(1);
     }
+
+While there is a connection to the serial port, read the incoming data and print to console::
 
     void  loop() {
       while (!Serial.available());
@@ -95,57 +100,74 @@ You will need to upload this to the Arduino::
 
 3. Advanced Arduino example: blink
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-"""
-https://problemsolvingwithpython.com/11-Python-and-External-Hardware/11.03-Controlling-an-LED/#:~:text=In%20the%20next%20part%20of,off%20for%20about%205%20seconds."""
+In this example we will connect python to an Arduino, and control
+one of its LED's. The code has been taken from:
 
-# import libraries
-import serial
-import time
+    | https://problemsolvingwithpython.com/11-Python-and-External-Hardware/11.03-Controlling-an-LED/#:~:text=In%20the%20next%20part%20of,off%20for%20about%205%20seconds."""
 
-# Instantiate a serial object and connect it to 'COM4' - check the Arduino port number!!!
-ser = serial.Serial('COM4', 9800, timeout=1)
+**PYTHON CODE**
 
-# Wait for a bit while it handshakes the connection
-time.sleep(2)
+Import libraries::
 
-# In a loop
-for i in range(10):
-    ser.writelines(b'H')   # send a byte
-    time.sleep(0.5)        # wait 0.5 seconds
-    ser.writelines(b'L')   # send a byte
-    time.sleep(0.5)
+    import serial
+    import time
 
-# It is only proper to close the connection
-ser.close()
+Instantiate a serial object and connect it to 'COM4' - check the Arduino port number!!!::
 
-"""
-ARDUINO CODE
+    ser = serial.Serial('COM4', 9800, timeout=1)
+
+Wait for a bit while it handshakes the connection::
+
+    time.sleep(2)
+
+In a loop::
+
+    for i in range(10):
+        ser.writelines(b'H')   # send a byte
+        time.sleep(0.5)        # wait 0.5 seconds
+        ser.writelines(b'L')   # send a byte
+        time.sleep(0.5)
+
+It is only proper to close the connection. This is important!::
+
+    ser.close()
+
+**ARDUINO CODE**
+You will need to upload this to your Arduino. It can be found in the Arduino IDE:
 // Arduino IDE:
 // File -> Examples -> 04.Communication -> PhysicalPixel
 
-const int ledPin = 13; // pin the LED is attached to
-int incomingByte;      // variable stores  serial data
+Declare the constants and variables::
 
-void setup() {
-  // initialize serial communication:
-  Serial.begin(9600);
-  // initialize the LED pin as an output:
-  pinMode(ledPin, OUTPUT);
-}
+    const int ledPin = 13; // pin the LED is attached to
+    int incomingByte;      // variable stores  serial data
 
-void loop() {
-  // see if there's incoming serial data:
-  if (Serial.available() > 0) {
-    // read the oldest byte in the serial buffer:
-    incomingByte = Serial.read();
-    // if it's a capital H (ASCII 72), turn on the LED:
-    if (incomingByte == 'H') {
-      digitalWrite(ledPin, HIGH);
+Open the serial port and initialise the connection to the LED pin (declared in the constant above)::
+
+    void setup() {
+      // initialize serial communication:
+      Serial.begin(9600);
+      // initialize the LED pin as an output:
+      pinMode(ledPin, OUTPUT);
     }
-    // if it's an L (ASCII 76) turn off the LED:
-    if (incomingByte == 'L') {
-      digitalWrite(ledPin, LOW);
+
+If there is a connection, read the incoming signal::
+
+    void loop() {
+      // see if there's incoming serial data:
+      if (Serial.available() > 0) {
+        // read the oldest byte in the serial buffer:
+        incomingByte = Serial.read();
+
+// If it's a capital H (ASCII 72), turn on the LED::
+
+        if (incomingByte == 'H') {
+          digitalWrite(ledPin, HIGH);
+        }
+
+// If it's an L (ASCII 76) turn off the LED::
+        if (incomingByte == 'L') {
+          digitalWrite(ledPin, LOW);
+        }
+      }
     }
-  }
-}
-"""
