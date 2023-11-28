@@ -132,7 +132,9 @@ It is only proper to close the connection. This is important!::
 
     ser.close()
 
+-
 **ARDUINO CODE**
+
 You will need to upload this to your Arduino. It can be found in the Arduino IDE:
 // Arduino IDE:
 // File -> Examples -> 04.Communication -> PhysicalPixel
