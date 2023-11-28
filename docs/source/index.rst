@@ -23,6 +23,7 @@ Guide
    audio-2
    IOcomms-1
    IOcomms-2
+   neoscore
 
 
 Indices and tables
