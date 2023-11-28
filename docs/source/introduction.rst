@@ -24,6 +24,10 @@ The basic knowledge required is an understanding of:
 + try-except-finally,
 + object-oriented programming (classes).
 
+Here is a good refresher page:
+
+    | https://github.com/davidkant/mai/blob/master/tutorial/1_1_Hello_Python.ipynb
+
 It is presumed that you will be using this IDE for:
 
 + environment management,
