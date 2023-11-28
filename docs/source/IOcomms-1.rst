@@ -136,8 +136,8 @@ It is only proper to close the connection. This is important!::
 **ARDUINO CODE**
 
 You will need to upload this to your Arduino. It can be found in the Arduino IDE:
-// Arduino IDE:
-// File -> Examples -> 04.Communication -> PhysicalPixel
+
+    | Arduino IDE: File -> Examples -> 04.Communication -> PhysicalPixel
 
 Declare the constants and variables::
 
