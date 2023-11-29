@@ -105,10 +105,9 @@ from Terminal (as there are no imported libraries, there is no need to worry abo
     | Original code taken from https://www.digitalocean.com/community/tutorials/python-socket-programming-server-client
 
 
-######################
-# CLIENT
-# RUN THIS IN TERMINAL
-######################
+CLIENT
+^^^^^^
+**RUN THIS IN TERMINAL**
 
 Import libraries::
 
@@ -147,10 +146,10 @@ Code starts here if called directly (use terminal)::
         client_program()
 
 
-######################
-# SERVER
-# RUN THIS IN YOUR IDE
-######################
+
+SERVER
+^^^^^^
+**RUN THIS IN YOUR IDE**
 
 Import libraries::
 
@@ -211,10 +210,9 @@ from Terminal (as there are no imported libraries, there is no need to worry abo
     | Original code taken from https://pyshine.com//How-to-send-audio-from-PyAudio-over-socket/
 
 
-######################
-# CLIENT
-# RUN THIS IN TERMINAL
-######################
+CLIENT
+^^^^^^
+**RUN THIS IN TERMINAL**
 
 Import libraries::
 
@@ -257,7 +255,8 @@ Function that connects to the server and stream audio::
         data = b""
         payload_size = struct.calcsize("Q")
 
-        # Endless loop for streaming
+Endless loop for streaming::
+
         while True:
             try:
                 # Receive a data package from the server
@@ -295,10 +294,11 @@ Make a thread::
 
 
 
-######################
-# SERVER
-# RUN THIS IN YOUR IDE
-######################
+
+SERVER
+^^^^^^
+**RUN THIS IN YOUR IDE**
+
 
 Import libraries::
 
@@ -344,7 +344,8 @@ Function that listens out for client and accepts audio stream::
                         input=True,
                         frames_per_buffer=CHUNK)
 
-        # Accept the connection (handshake)
+Accept the connection (handshake)::
+
         client_socket, addr = server_socket.accept()
 
         data = None
