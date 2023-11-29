@@ -22,7 +22,7 @@ Get *socket*
 
 
 1. Hello *socket*
-------------------
+^^^^^^^^^^^^^^^^^
 In this example we will use *socket* to reach out (like a ping) and test if a website is up and running.
 
 Import libraries::

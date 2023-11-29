@@ -23,10 +23,10 @@ This differs on OS, so follow the guidance here::
     https://people.csail.mit.edu/hubert/pyaudio/
 
 -
-    | Full docs for *pydub* can be found here: https://people.csail.mit.edu/hubert/pyaudio/docs/
+    | Full docs for *pyaudio* can be found here: https://people.csail.mit.edu/hubert/pyaudio/docs/
 
 1. *Hello pyaudio*
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
     | reference: audio-pyaudio-1.py
 

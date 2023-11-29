@@ -23,7 +23,7 @@ Import *pydub* into your IDE using the following command::
     | Full docs for *pydub* can be found here: https://pydub.com/
 
 1. *Hello pydub*
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
     | Open a new python file in your IDE (or open audio-pydub-1.py).
 
 Import pydub::
@@ -89,7 +89,7 @@ Play the song::
     play(fast_backwards_fade_sliced_song)
 
 3. Pydub API
-^^^^^^^^^^^
+^^^^^^^^^^^^
 The API and comprehensive docs offer many examples of *pydub*'s usability and OOP construction.
 
 Here we are going to explore some of its API functions and create an audio splicer.
