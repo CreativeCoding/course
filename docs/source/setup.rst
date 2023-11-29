@@ -134,10 +134,7 @@ the command::
 2. Threading (I/O concurrency)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Threading enables concurrent processes (or the illusion of concurrency) in your code. For example analysing the sound input
-from the laptop's microphone AND displaying notes on a screen. There are 4 main libraries that support concurrency. Use this file
-to see examples of them in use:
-
-    | threading-examples.py
+from the laptop's microphone AND displaying notes on a screen. There are 4 main libraries that support concurrency.
 
 + *trio* https://trio.readthedocs.io/en/stable/
 + *asyncio* https://docs.python.org/3/library/asyncio.html
