@@ -1,7 +1,7 @@
 I/O Comms 1
 ===========
 
-In these sessions you will learn about Inpuy/ Output communications using pyton.
+In these sessions you will learn about Input/ Output communications using pyton.
 We will focus on 2 types of I/O comms: the serial port (e.g. USB) and Ip sockets
 (e.g. the Internet). To do this we will first explore *pyserial* and the *socket*.
 
@@ -16,6 +16,7 @@ actuators, and lights. *pyserial* provides an interface to communicate over the 
 
 Get *pyserial*
 ^^^^^^^^^^^^^^
+
 To import *pyserial* into your IDE you may need to install other
 dependencies into your system. This differs on OS, so follow the guidance here::
 
@@ -42,6 +43,7 @@ Iterate through list and print out to console::
 
     for i in com_ports:
         print(i.device)
+
 2. Example with Arduino
 ^^^^^^^^^^^^^^^^^^^^^^^
 In this example we will explore a simple in-out communications between Python and an Arduino.
@@ -106,7 +108,6 @@ one of its LED's. The code has been taken from:
     | https://problemsolvingwithpython.com/11-Python-and-External-Hardware/11.03-Controlling-an-LED/#:~:text=In%20the%20next%20part%20of,off%20for%20about%205%20seconds."""
 
 **PYTHON CODE**
-
 Import libraries::
 
     import serial
@@ -161,13 +162,14 @@ If there is a connection, read the incoming signal::
         // read the oldest byte in the serial buffer:
         incomingByte = Serial.read();
 
-// If it's a capital H (ASCII 72), turn on the LED::
+If it's a capital H (ASCII 72), turn on the LED::
 
         if (incomingByte == 'H') {
           digitalWrite(ledPin, HIGH);
         }
 
-// If it's an L (ASCII 76) turn off the LED::
+If it's an L (ASCII 76) turn off the LED::
+
         if (incomingByte == 'L') {
           digitalWrite(ledPin, LOW);
         }
