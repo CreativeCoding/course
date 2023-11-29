@@ -96,259 +96,277 @@ Code starts here::
         main()
 
 2. Simple client-server
-^^^^^^^^^^^^^^^^
-In this example
-
+^^^^^^^^^^^^^^^^^^^^^^^
+In this example we will setup a basic client-server system. We are basing this on a single machine, but it could easily
+work across machines (firewalls allowing). In this example we will need to run a server in the IDE, and run the client
+from Terminal (as there are no imported libraries, there is no need to worry about an environment).
 
 
     | Original code taken from https://www.digitalocean.com/community/tutorials/python-socket-programming-server-client
 
 
 ######################
+# CLIENT
 # RUN THIS IN TERMINAL
 ######################
 
-# Import libraries
-import socket
+Import libraries::
 
-# Function that manages the client side
-def client_program():
-    # get the hostname (your computer for this test)
-    host = socket.gethostname()  # as both code is running on same pc
-    print(f'Hostname = {host}')
-    port = 5000  # socket server port number MUST BE SAME AS SERVER
+    import socket
 
-    # Instantiate a Socket object
-    client_socket = socket.socket()
-    # connect to the server
-    client_socket.connect((host, port))
+Function that manages the client side::
 
-    # Write a message to the server
-    message = input(" -> ")
+    def client_program():
+        # get the hostname (your computer for this test)
+        host = socket.gethostname()  # as both code is running on same pc
+        print(f'Hostname = {host}')
+        port = 5000  # socket server port number MUST BE SAME AS SERVER
 
-    # If 'bye' then client will close con, otherwise
-    while message.lower().strip() != 'bye':
-        client_socket.send(message.encode())  # send message
-        data = client_socket.recv(1024).decode()  # receive response
+        # Instantiate a Socket object
+        client_socket = socket.socket()
+        # connect to the server
+        client_socket.connect((host, port))
 
-        print(f'Received {data} from server')  # show in terminal
+        # Write a message to the server
+        message = input(" -> ")
 
-        message = input(" -> ")  # again take input
+        # If 'bye' then client will close con, otherwise
+        while message.lower().strip() != 'bye':
+            client_socket.send(message.encode())  # send message
+            data = client_socket.recv(1024).decode()  # receive response
 
-    client_socket.close()  # close the connection
+            print(f'Received {data} from server')  # show in terminal
 
-# Code starts here if called directly (use terminal)
-if __name__ == '__main__':
-    client_program()
+            message = input(" -> ")  # again take input
 
-"""
-Original code taken from https://www.digitalocean.com/community/tutorials/python-socket-programming-server-client
-"""
+        client_socket.close()  # close the connection
+
+Code starts here if called directly (use terminal)::
+
+    if __name__ == '__main__':
+        client_program()
+
 
 ######################
+# SERVER
 # RUN THIS IN YOUR IDE
 ######################
 
+Import libraries::
 
-# Import libraries
-import socket
+    import socket
 
-# Function that operates as a server - can take up to 3 clients at a time
-def server_program():
-    # get the hostname (your computer for this test)
-    host = socket.gethostname()
-    print(f'Hostname = {host}')
-    port = 5000  # initiate port no above 1024
+Function that operates as a server - can take up to 3 clients at a time::
 
-    # Instantiate a Socket object
-    server_socket = socket.socket()
+    def server_program():
+        # get the hostname (your computer for this test)
+        host = socket.gethostname()
+        print(f'Hostname = {host}')
+        port = 5000  # initiate port no above 1024
 
-    # Bind the host address and port together
-    # look closely. The bind() function takes tuple as argument
-    server_socket.bind((host, port))
+        # Instantiate a Socket object
+        server_socket = socket.socket()
 
-    # configure how many client the server can listen simultaneously
-    server_socket.listen(3)
+        # Bind the host address and port together
+        # look closely. The bind() function takes tuple as argument
+        server_socket.bind((host, port))
 
-    # Accept the connection (handshake)
-    conn, address = server_socket.accept()
-    print("Connection from: " + str(address))
+        # configure how many client the server can listen simultaneously
+        server_socket.listen(3)
 
-    # Endless loop
-    while True:
-        # receive data stream. it won't accept data packet greater than 1024 bytes
-        data = conn.recv(1024).decode()
+        # Accept the connection (handshake)
+        conn, address = server_socket.accept()
+        print("Connection from: " + str(address))
 
-        # if data is not received break
-        if not data:
-            break
-        print(f"Received {str(data)} from connected user")
+        # Endless loop
+        while True:
+            # receive data stream. it won't accept data packet greater than 1024 bytes
+            data = conn.recv(1024).decode()
 
-        # Send data back
-        data = input(' -> ')
-        conn.send(data.encode())  # send data to the client
+            # if data is not received break
+            if not data:
+                break
+            print(f"Received {str(data)} from connected user")
+
+            # Send data back
+            data = input(' -> ')
+            conn.send(data.encode())  # send data to the client
 
     # close connection once finished
     conn.close()  # close the connection
 
-# Code starts here if called directly (use IDE)
-if __name__ == '__main__':
-    server_program()
+Code starts here if called directly (use IDE):
+
+    if __name__ == '__main__':
+        server_program()
 
 3. Streaming audio over IP
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+In this example we will setup an audio streamer using a basic client-server system.
+We are basing this on a single machine, but it could easily
+work across machines (firewalls allowing). In this example we will need to run a server in the IDE, and run the client
+from Terminal (as there are no imported libraries, there is no need to worry about an environment).
 
-"""https://pyshine.com//How-to-send-audio-from-PyAudio-over-socket/"""
+
+    | Original code taken from https://pyshine.com//How-to-send-audio-from-PyAudio-over-socket/
+
 
 ######################
+# CLIENT
 # RUN THIS IN TERMINAL
 ######################
 
-# Import libraries
-import socket
-import os
-import threading
-import pyaudio
-import pickle
-import struct
+Import libraries::
 
-# Declare all variables and constants
-host_name = socket.gethostname()
-host_ip = '192.168.1.102'  # socket.gethostbyname(host_name)
-print(host_ip)
-port = 9611  # socket server port number MUST BE SAME AS SERVER
+    import socket
+    import os
+    import threading
+    import pyaudio
+    import pickle
+    import struct
 
-# Function that connects to the server and stream audio
-def audio_stream():
-    # Stuff from pyaudio: set chunk size and open a stream
-    p = pyaudio.PyAudio()
-    CHUNK = 1024
-    stream = p.open(format=p.get_format_from_width(2),
-                    channels=2,
-                    rate=44100,
-                    output=True,
-                    frames_per_buffer=CHUNK)
+Declare all variables and constants::
 
-    # Instantiate a Socket object
-    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    socket_address = (host_ip, port - 1)
-    print('server listening at', socket_address)
+    host_name = socket.gethostname()
+    host_ip = '192.168.1.102'  # socket.gethostbyname(host_name)
+    print(host_ip)
+    port = 9611  # socket server port number MUST BE SAME AS SERVER
 
-    # Connect to the server
-    client_socket.connect(socket_address)
-    print("CLIENT CONNECTED TO", socket_address)
+Function that connects to the server and stream audio::
 
-    # State operational vars and consts
-    data = b""
-    payload_size = struct.calcsize("Q")
+    def audio_stream():
+        # Stuff from pyaudio: set chunk size and open a stream
+        p = pyaudio.PyAudio()
+        CHUNK = 1024
+        stream = p.open(format=p.get_format_from_width(2),
+                        channels=2,
+                        rate=44100,
+                        output=True,
+                        frames_per_buffer=CHUNK)
 
-    # Endless loop for streaming
-    while True:
-        try:
-            # Receive a data package from the server
-            while len(data) < payload_size:
-                packet = client_socket.recv(4 * 1024)  # 4K
-                if not packet:
-                    break
-                data += packet
+        # Instantiate a Socket object
+        client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket_address = (host_ip, port - 1)
+        print('server listening at', socket_address)
 
-            # Calc the size of the package
-            packed_msg_size = data[:payload_size]
-            data = data[payload_size:]
-            msg_size = struct.unpack("Q", packed_msg_size)[0]
-            while len(data) < msg_size:
-                data += client_socket.recv(4 * 1024)
-            # Strip off the audio chunk
-            frame_data = data[:msg_size]
-            data = data[msg_size:]
-            frame = pickle.loads(frame_data)
-            # Write to the pyaudio stream
-            stream.write(frame)
-        except:
-            break
+        # Connect to the server
+        client_socket.connect(socket_address)
+        print("CLIENT CONNECTED TO", socket_address)
 
-    # Close the socket once completed
-    client_socket.close()
-    print('Audio closed')
-    os._exit(1)
+        # State operational vars and consts
+        data = b""
+        payload_size = struct.calcsize("Q")
 
-# Make a thread.
-t1 = threading.Thread(target=audio_stream, args=())
-t1.start()
+        # Endless loop for streaming
+        while True:
+            try:
+                # Receive a data package from the server
+                while len(data) < payload_size:
+                    packet = client_socket.recv(4 * 1024)  # 4K
+                    if not packet:
+                        break
+                    data += packet
+
+                # Calc the size of the package
+                packed_msg_size = data[:payload_size]
+                data = data[payload_size:]
+                msg_size = struct.unpack("Q", packed_msg_size)[0]
+                while len(data) < msg_size:
+                    data += client_socket.recv(4 * 1024)
+                # Strip off the audio chunk
+                frame_data = data[:msg_size]
+                data = data[msg_size:]
+                frame = pickle.loads(frame_data)
+                # Write to the pyaudio stream
+                stream.write(frame)
+            except:
+                break
+
+        # Close the socket once completed
+        client_socket.close()
+        print('Audio closed')
+        os._exit(1)
+
+Make a thread::
+
+    t1 = threading.Thread(target=audio_stream, args=())
+    t1.start()
 
 
-"""
-Original Code from https://pyshine.com//How-to-send-audio-from-PyAudio-over-socket/
-"""
+
 
 ######################
+# SERVER
 # RUN THIS IN YOUR IDE
 ######################
 
-# Import libraries
-import socket
-import threading
-import wave
-import pyaudio
-import pickle
-import struct
+Import libraries::
 
-# Declare all variables and constants
-host_name = socket.gethostname()
-host_ip = '192.168.1.102'  # socket.gethostbyname(host_name)
-print(host_ip)
-port = 9611   # socket server port number MUST BE SAME AS SERVER
+    import socket
+    import threading
+    import wave
+    import pyaudio
+    import pickle
+    import struct
 
-# Function that listens out for client and accepts audio stream
-def audio_stream():
-    # Instantiate a Socket object
-    server_socket = socket.socket()
+Declare all variables and constants::
 
-    # Bind the host address and port together
-    # look closely. The bind() function takes tuple as argument
-    server_socket.bind((host_ip, (port - 1)))
+    host_name = socket.gethostname()
+    host_ip = '192.168.1.102'  # socket.gethostbyname(host_name)
+    print(host_ip)
+    port = 9611   # socket server port number MUST BE SAME AS SERVER
 
-    # configure how many client the server can listen simultaneously
-    server_socket.listen(5)
+Function that listens out for client and accepts audio stream::
 
-    # Stuff from pyaudio: set chunk size and open the file to stream
-    CHUNK = 1024
-    wf = wave.open("temp.wav", 'rb')  # Change file path to access YOUR audio file. rb = read
+    def audio_stream():
+        # Instantiate a Socket object
+        server_socket = socket.socket()
 
-    # Instantiate a pyaudio object
-    p = pyaudio.PyAudio()
-    print('server listening at', (host_ip, (port - 1)))
+        # Bind the host address and port together
+        # look closely. The bind() function takes tuple as argument
+        server_socket.bind((host_ip, (port - 1)))
 
-    # create a pyaudio stream (do this stuff first so not to break the connection)
-    stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
-                    channels=wf.getnchannels(),
-                    rate=wf.getframerate(),
-                    input=True,
-                    frames_per_buffer=CHUNK)
+        # configure how many client the server can listen simultaneously
+        server_socket.listen(5)
 
-    # Accept the connection (handshake)
-    client_socket, addr = server_socket.accept()
+        # Stuff from pyaudio: set chunk size and open the file to stream
+        CHUNK = 1024
+        wf = wave.open("temp.wav", 'rb')  # Change file path to access YOUR audio file. rb = read
 
-    data = None
+        # Instantiate a pyaudio object
+        p = pyaudio.PyAudio()
+        print('server listening at', (host_ip, (port - 1)))
 
-    # Endless loop
-    while True:
-        if client_socket:
+        # create a pyaudio stream (do this stuff first so not to break the connection)
+        stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
+                        channels=wf.getnchannels(),
+                        rate=wf.getframerate(),
+                        input=True,
+                        frames_per_buffer=CHUNK)
 
-            # Stream the audio file a chunk at a time
-            while True:
-                data = wf.readframes(CHUNK)
+        # Accept the connection (handshake)
+        client_socket, addr = server_socket.accept()
 
-                # Pack into a pickle file
-                a = pickle.dumps(data)
+        data = None
 
-                # send chunk (as pickle) with length
-                message = struct.pack("Q", len(a)) + a
+        # Endless loop
+        while True:
+            if client_socket:
 
-                # Send it off
-                client_socket.sendall(message)
+                # Stream the audio file a chunk at a time
+                while True:
+                    data = wf.readframes(CHUNK)
 
-# Make a thread.
-t1 = threading.Thread(target=audio_stream, args=())
-t1.start()
+                    # Pack into a pickle file
+                    a = pickle.dumps(data)
 
+                    # send chunk (as pickle) with length
+                    message = struct.pack("Q", len(a)) + a
+
+                    # Send it off
+                    client_socket.sendall(message)
+
+Make a thread::
+
+    t1 = threading.Thread(target=audio_stream, args=())
+    t1.start()
