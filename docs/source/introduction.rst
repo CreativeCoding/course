@@ -28,6 +28,12 @@ Here is a good refresher page:
 
     | https://github.com/davidkant/mai/blob/master/tutorial/1_1_Hello_Python.ipynb
 
+This is a good game/ app to improv your algorithmic thinking, creativity and optimisation:
+
+    | https://tomorrowcorporation.com/humanresourcemachine
+
+
+
 It is presumed that you will be using this IDE for:
 
 + environment management,
