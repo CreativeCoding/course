@@ -26,7 +26,10 @@ The basic knowledge required is an understanding of:
 
 Here is a good refresher page:
 
-    | https://github.com/davidkant/mai/blob/master/tutorial/1_1_Hello_Python.ipynb
+    | https://github.com/CreativeCoding/musicAI/blob/master/tutorial/1_1_Hello_Python.ipynb
+
+(Forked from https://github.com/davidkant/mai/blob/master/tutorial/1_1_Hello_Python.ipynb)
+
 
 This is a good game/ app to improv your algorithmic thinking, creativity and optimisation:
 
