@@ -12,7 +12,17 @@ Get Fluidsynth
 *pyfluidsynth* is a python binding to the more universal *fluidsynth* library. Fluidsynth
 is an internal synthesiser, so we need to install *fluidsynth* into the computer not the python environment.
 
-Follow the instructions here https://github.com/FluidSynth/fluidsynth/wiki/Download
+The easiet way to manage these computer packages is to install a package manager such as:
+
+    - HomeBrew (MacOS) https://brew.sh/
+    - Chocolatey (Windows) https://chocolatey.org/
+
+
+Follow the instructions here:
+
+    - Raw import https://github.com/FluidSynth/fluidsynth/wiki/Download
+    - Homebrew https://formulae.brew.sh/formula/fluid-synth
+    - Chocolatey https://community.chocolatey.org/packages/fluidsynth
 
 *FluidSynth* is a MIDI synthesizer which uses SoundFont (.SF2) files to generate audio.
 To get it to make a sound you will need one of these files (look here: https://github.com/FluidSynth/fluidsynth/wiki/SoundFont
