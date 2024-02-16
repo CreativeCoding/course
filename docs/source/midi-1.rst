@@ -15,7 +15,7 @@ is an internal synthesiser, so we need to install *fluidsynth* into the computer
 The easiet way to manage these computer packages is to install a package manager such as:
 
     - HomeBrew (MacOS) https://brew.sh/
-    - Chocolatey (Windows) https://chocolatey.org/
+    - Chocolatey (Windows) https://chocolatey.org/   (help video here https://www.youtube.com/watch?v=hfgZYpo5moA)
 
 
 Follow the instructions here:

@@ -15,7 +15,7 @@ fs.program_select(0, sfid, 0, 0)
 
 # Make a midi Message object and call it msg
 # This message will be a 'not on' type, with note number 60
-msg = Message('note_on', note=60)
+msg = Message('note_on', note=50)
 
 # Amend other Message Object parameters
 msg.velocity = 90
@@ -24,10 +24,13 @@ msg.velocity = 90
 print(msg)
 
 # Parse the Message and play on fluidsynth
-if msg.type == "note_on":
-    fs.noteon(msg.channel, msg.note, msg.velocity)
-    sleep(2)
-    fs.noteoff(msg.channel, msg.note)
+for t in range(10):
+    if msg.type == "note_on":
+        adjusted_note = msg.note + t
+        fs.noteon(msg.channel, adjusted_note, msg.velocity)
+        sleep(t / 10)
+        fs.noteoff(msg.channel, adjusted_note)
+
 
 # Collapse the fs object
 fs.delete()
