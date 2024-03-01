@@ -2,6 +2,7 @@
 
 # Import every module from Music21 -- not very optimised, not advised!!
 from music21 import *
+from random import randrange
 
 # Parse the Bach xml file into a Music21 container for processing
 src = corpus.parse('bach/bwv323.xml')
@@ -16,7 +17,7 @@ soprano = src.getElementById('Soprano').recurse().notesAndRests.stream()
 outputScore = stream.Score()
 
 # set out a few transformation parameters. List of tuples: (speed, transposition)
-transformations = [(1.0, 'P1'),
+transformations = [((randrange(0, 300) / 100), 'P1'),
                    (2.0, '-P5'),
                    (0.5, '-P11'),
                    (1.5, -24)  # 24 semitones down

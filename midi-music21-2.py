@@ -104,7 +104,7 @@ def main():
     # Shuffle it for fun
     shuffle(midi_bits)
     shuffled_midi_bits = midi_bits
-    shuffle (shuffled_midi_bits)
+    shuffle(shuffled_midi_bits)
 
     t1 = Thread(target=play_midi_bits,
                 args=(midi_bits,)
@@ -119,14 +119,14 @@ def main():
 
 
 #  Code starts here
-if __name__ == "__main__":
-    # Send a Midifile path to
-    midi_bits = get_midi_bits("book1-prelude01.mid")
-    # Shuffle it for fun
-    shuffle(midi_bits)
-    # Play the resultant new composition
-    play_midi_bits(midi_bits)
+# if __name__ == "__main__":
+#     # Send a Midifile path to
+#     midi_bits = get_midi_bits("book1-prelude01.mid")
+#     # Shuffle it for fun
+#     shuffle(midi_bits)
+#     # Play the resultant new composition
+#     play_midi_bits(midi_bits)
 
 # Alternative two-part version
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()

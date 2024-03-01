@@ -14,8 +14,12 @@ for element in bach_score:
     try:
         for ele in element:
             print(ele)
+            # for e in ele:
+            #     print("           ", e)
     except:
         print(f"{element} is not iterable")
 
 # Optional print xml file to MusicXML reader such as MuseScore
 bach_score.show()
+
+print("hello world")
